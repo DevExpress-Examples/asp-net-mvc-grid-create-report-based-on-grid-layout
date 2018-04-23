@@ -1,0 +1,37 @@
+@using DevExpress.Data;
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "GridView";
+    settings.CallbackRouteValues = new {
+        Controller = "Home",
+        Action = "GridViewPartial"
+    };
+
+    settings.KeyFieldName = "ProductID";
+
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowClearFilterButton = true;
+
+    settings.Columns.Add("ProductID");
+    settings.Columns.Add("ProductName");
+    settings.Columns.Add("SupplierID");
+    settings.Columns.Add("CategoryID");
+    settings.Columns.Add("QuantityPerUnit");
+    settings.Columns.Add("UnitPrice");
+    settings.Columns.Add("UnitsInStock");
+    settings.Columns.Add("UnitsOnOrder");
+    settings.Columns.Add("ReorderLevel");
+    settings.Columns.Add("Discontinued", MVCxGridViewColumnType.CheckBox);
+    settings.Columns.Add("EAN13");
+
+    settings.TotalSummary.Add(SummaryItemType.Sum, "UnitsInStock");
+    settings.TotalSummary.Add(SummaryItemType.Sum, "SupplierID");
+
+    settings.Settings.ShowFilterRow = true;
+    settings.Settings.ShowFooter = true;
+    settings.Settings.ShowGroupPanel = true;
+
+    settings.PreRender = settings.BeforeGetCallbackResult = (sender, e) => {
+        MVCxGridView gridView = sender as MVCxGridView;
+        Session["gridViewState"] = new MVCxGridViewState(gridView);
+    };
+}).Bind(Model).GetHtml()

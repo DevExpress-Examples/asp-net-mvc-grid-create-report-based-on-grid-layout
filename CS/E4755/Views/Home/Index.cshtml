@@ -1,0 +1,13 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("Export", "Home")) { 
+       
+    @Html.DevExpress().Button(settings => {
+    settings.Name = "btExport";
+    settings.Text = "Export to PDF via XtraReport";
+    settings.UseSubmitBehavior = true;
+}).GetHtml()    
+    
+    @Html.Action("GridViewPartial")
+}
