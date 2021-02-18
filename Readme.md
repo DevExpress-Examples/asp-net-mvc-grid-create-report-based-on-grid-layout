@@ -8,6 +8,6 @@
 As it is impossible to get the GridView extension state (its filtering, groping, sorting info), the Session is used to pass the last GridView state to the controller.</p><p><strong>See also:</strong><br />
 <a href="https://www.devexpress.com/Support/Center/p/E4476">E4476: How to convert and then print an ASPxGridView by using the XtraReport</a></p>
 
-<br/>
+
 
 
