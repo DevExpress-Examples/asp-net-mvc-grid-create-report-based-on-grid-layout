@@ -105,7 +105,7 @@ public class MVCReportGeneratonHelper {
     void InitDetailsAndPageHeader(MVCxGridViewState gridViewState) {
         GridViewDataColumnStateCollection groupedColumns = gridViewState.GroupedColumns;
 
-        int pagewidth = (report.PageWidth - (report.Margins.Left + report.Margins.Right)) - groupedColumns.Count * subGroupOffset;
+        int pagewidth = (report.PageWidth - (int)(report.Margins.Left + report.Margins.Right)) - groupedColumns.Count * subGroupOffset;
         List<MVCxColumnInfo> columns = GetColumnsInfo(gridViewState, pagewidth);
         CustomizeColumnsCollection(report, new ColumnsCreationEventArgs(pagewidth) {
             ColumnsInfo = columns

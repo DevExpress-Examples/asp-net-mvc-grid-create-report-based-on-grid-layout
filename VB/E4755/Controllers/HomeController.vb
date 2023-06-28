@@ -53,7 +53,7 @@ Namespace E4755.Controllers
 			End If
 		End Sub
 
-		Private Sub control_BeforePrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs)
+		Private Sub control_BeforePrint(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
 			If Convert.ToBoolean((CType(sender, XRShape)).Report.GetCurrentColumnValue("Discontinued")) = True Then
 				CType(sender, XRShape).FillColor = Color.Yellow
 			Else
