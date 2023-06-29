@@ -29,7 +29,7 @@ Public Class MVCReportGeneratonHelper
 	Public Function GenerateMVCReport(ByVal gridViewState As MVCxGridViewState, ByVal model As Object) As XtraReport
 		report = New XtraReport()
 		report.Landscape = True
-		report.PaperKind = System.Drawing.Printing.PaperKind.Letter
+		report.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Letter
 
 		InitDataSource(model)
 		InitDetailsAndPageHeader(gridViewState)
